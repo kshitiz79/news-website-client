@@ -1,36 +1,148 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI News Automation - Frontend
 
-## Getting Started
+Modern, AI-powered news website built with Next.js 15.
 
-First, run the development server:
+## 🎨 Features
+
+- ✅ **Modern UI** - Glass morphism, gradients, smooth animations
+- ✅ **Responsive Design** - Mobile-first, works on all devices
+- ✅ **Dark Theme** - Premium dark mode design
+- ✅ **SEO Optimized** - Proper meta tags, semantic HTML
+- ✅ **Fast Performance** - Optimized images, lazy loading
+- ✅ **Analytics Dashboard** - Real-time stats and charts
+
+## 📄 Pages
+
+1. **Homepage** (`/`)
+   - Hero section with stats
+   - Trending topics
+   - Latest articles grid
+   - Category cards
+   - Newsletter signup
+
+2. **Articles Listing** (`/articles`)
+   - Search functionality
+   - Category filters
+   - Responsive grid
+   - Load more
+
+3. **Article Detail** (`/articles/[slug]`)
+   - Full article content
+   - Social sharing
+   - Related articles
+   - Tags
+
+4. **Category Page** (`/category/[name]`)
+   - Category hero
+   - Filtered articles
+   - Related categories
+
+5. **Dashboard** (`/dashboard`)
+   - Analytics stats
+   - Traffic chart
+   - Revenue chart
+   - Top articles
+   - Recent activity
+   - Category performance
+
+## 🎨 Components
+
+- `ArticleCard` - Article preview card
+- `TrendingTopics` - Featured trending articles
+- `SocialShare` - Social media sharing buttons
+- `TrafficChart` - 7-day traffic visualization
+- `RevenueChart` - Revenue growth chart
+- `SEOHead` - SEO meta tags
+- `AdStrategy` - AdSense integration
+
+## 🚀 Getting Started
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎨 Design System
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Colors
+- **Primary**: Blue (#3b82f6) to Purple (#9333ea)
+- **Success**: Green (#10b981)
+- **Warning**: Yellow (#f59e0b)
+- **Danger**: Red (#ef4444)
+- **Background**: Black (#000000) to Gray (#111827)
 
-## Learn More
+### Typography
+- **Font**: Inter (Google Fonts)
+- **Headings**: Bold, gradient text effects
+- **Body**: Regular, gray-300
 
-To learn more about Next.js, take a look at the following resources:
+### Effects
+- **Glass Morphism**: `backdrop-filter: blur(10px)`
+- **Gradients**: Linear gradients for text and backgrounds
+- **Animations**: Fade in, slide in, hover effects
+- **Shadows**: Glow effects on hover
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📱 Responsive Breakpoints
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Mobile**: < 640px
+- **Tablet**: 640px - 1024px
+- **Desktop**: > 1024px
 
-## Deploy on Vercel
+## 🔗 Navigation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Home: `/`
+- Articles: `/articles`
+- AI Category: `/category/artificial-intelligence`
+- Technology: `/category/technology`
+- Dashboard: `/dashboard`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎯 Next Steps
+
+1. Connect to backend API
+2. Implement real data fetching
+3. Add authentication
+4. Integrate AdSense
+5. Add Google Analytics
+6. Deploy to production
+
+## 📦 Tech Stack
+
+- **Framework**: Next.js 15
+- **Styling**: Tailwind CSS
+- **Language**: JavaScript (can migrate to TypeScript)
+- **Fonts**: Google Fonts (Inter)
+- **Icons**: Heroicons (SVG)
+
+## 🎨 Custom CSS Classes
+
+- `.gradient-text` - Gradient text effect
+- `.gradient-text-blue` - Blue gradient text
+- `.glass` - Glass morphism effect
+- `.card-hover` - Card hover animation
+- `.skeleton` - Loading skeleton
+- `.animate-fadeIn` - Fade in animation
+
+## 📝 Notes
+
+- All images use fallback emojis if not found
+- Responsive navigation with mobile menu
+- Smooth scroll behavior
+- Custom scrollbar styling
+- Loading states for all data
+- Empty states for no content
+
+---
+
+**Built with ❤️ and AI**
+# news-app-frontend
