@@ -13,7 +13,7 @@ export default function TrendingTopics({ articles, loading }) {
     return (
       <div className="text-center py-12 text-gray-400">
         <div className="text-6xl mb-4">📰</div>
-        <p>No trending topics at the moment</p>
+        <p className="text-gray-500">No trending topics at the moment</p>
       </div>
     );
   }
@@ -24,11 +24,11 @@ export default function TrendingTopics({ articles, loading }) {
         <a
           key={article.id}
           href={`/articles/${article.slug}`}
-          className="group relative overflow-hidden rounded-xl glass card-hover"
+          className="group relative overflow-hidden rounded-xl bg-white border border-gray-100 shadow-sm card-hover"
           style={{ animationDelay: `${index * 0.1}s` }}
         >
           {/* Background Image */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-sky-500/20">
             {article.image && (
               <img
                 src={article.image}
@@ -51,12 +51,12 @@ export default function TrendingTopics({ articles, loading }) {
               </div>
 
               {/* Title */}
-              <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors">
+              <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
                 {article.title}
               </h3>
 
               {/* Excerpt */}
-              <p className="text-gray-300 line-clamp-2">
+              <p className="text-gray-600 line-clamp-2">
                 {article.excerpt}
               </p>
             </div>
@@ -64,19 +64,19 @@ export default function TrendingTopics({ articles, loading }) {
             {/* Meta */}
             <div className="flex items-center justify-between mt-6">
               <div className="flex items-center space-x-4 text-sm text-gray-400">
-                <span className="px-3 py-1 bg-white/10 rounded-full">
+                <span className="px-3 py-1 bg-white border border-gray-100 shadow-sm rounded-full text-gray-700">
                   {article.category}
                 </span>
                 <span>{article.readingTime} min read</span>
               </div>
-              <div className="text-blue-400 group-hover:translate-x-2 transition-transform text-2xl">
+              <div className="text-blue-600 group-hover:translate-x-2 transition-transform text-2xl">
                 →
               </div>
             </div>
           </div>
 
           {/* Glow Effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-sky-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         </a>
       ))}
     </div>

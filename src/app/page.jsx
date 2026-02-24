@@ -84,56 +84,113 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-purple-900 to-black py-20">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center animate-fadeIn">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="gradient-text">AI-Powered</span>
-              <br />
-              <span className="text-white">News Automation</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Stay ahead with automated, AI-curated news from the world of technology, artificial intelligence, and innovation.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/articles" className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all">
-                Explore Articles
-              </a>
-              <a href="/dashboard" className="px-8 py-4 glass rounded-lg font-semibold hover:bg-white/10 transition-all">
-                View Dashboard
-              </a>
+      {/* 3-Column News Layout */}
+      <section className="py-12 bg-white mt-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            {/* Left Column: Latest News */}
+            <div className="lg:col-span-3">
+              <div className="flex items-center justify-between mb-6 border-b border-gray-900 pb-2">
+                <h2 className="text-xl font-bold uppercase tracking-tight">Latest News</h2>
+                <div className="bg-black text-white p-1 cursor-pointer">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+              <div className="space-y-6">
+                {(loading ? Array(5).fill({}) : articles.slice(0, 5)).map((article, i) => (
+                  <div key={article.id || i} className={`group ${loading ? 'animate-pulse' : ''}`}>
+                    <div className="flex gap-4">
+                      <div className="w-20 h-20 flex-shrink-0 bg-gray-100 overflow-hidden">
+                        {!loading && <img src={article.image} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-sm font-bold line-clamp-2 leading-tight group-hover:text-blue-600 transition-colors cursor-pointer">
+                          {loading ? <div className="h-4 bg-gray-200 w-full mb-1"></div> : article.title}
+                        </h3>
+                        {loading ? <div className="h-3 bg-gray-200 w-24 mt-2"></div> : <p className="text-[10px] text-gray-500 mt-1 uppercase font-semibold">{article.publishedAt}</p>}
+                      </div>
+                    </div>
+                    {i < 4 && <div className="mt-6 border-b border-gray-100"></div>}
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-            <div className="glass rounded-xl p-6 text-center card-hover">
-              <div className="text-3xl font-bold gradient-text-blue">1000+</div>
-              <div className="text-gray-400 mt-2">Articles Published</div>
+            {/* Center Column: Breaking News */}
+            <div className="lg:col-span-6 border-x border-gray-100 px-0 lg:px-8">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-4xl font-playfair font-bold">Breaking news</h2>
+                <button className="bg-black text-white px-3 py-1 flex items-center text-[10px] font-bold uppercase tracking-wider">
+                  News <svg className="w-3 h-3 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" /></svg>
+                </button>
+              </div>
+              
+              <div className="relative aspect-[16/10] bg-gray-100 overflow-hidden mb-8">
+                {loading ? (
+                  <div className="w-full h-full skeleton"></div>
+                ) : (
+                  <img src={articles[0]?.image} alt="" className="w-full h-full object-cover" />
+                )}
+              </div>
+
+              {!loading && (
+                <div className="animate-fadeIn">
+                  <h1 className="text-4xl md:text-5xl font-playfair font-bold mb-4 leading-tight tracking-tight text-gray-900">
+                    {articles[0]?.title}
+                  </h1>
+                  <div className="flex items-center gap-4 text-[10px] font-bold mb-4">
+                    <span className="text-gray-400">{articles[0]?.publishedAt}</span>
+                    <span className="text-gray-400 uppercase">Featured, News</span>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed text-sm lg:text-base">
+                    {articles[0]?.excerpt}
+                  </p>
+                </div>
+              )}
             </div>
-            <div className="glass rounded-xl p-6 text-center card-hover">
-              <div className="text-3xl font-bold gradient-text-blue">200K+</div>
-              <div className="text-gray-400 mt-2">Monthly Readers</div>
+
+            {/* Right Column: Sport News */}
+            <div className="lg:col-span-3">
+              <div className="flex items-center justify-between mb-6 border-b border-gray-900 pb-2">
+                <h2 className="text-xl font-bold uppercase tracking-tight">Sport</h2>
+                <div className="bg-black text-white p-1 cursor-pointer">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+              <div className="space-y-6">
+                {(loading ? Array(5).fill({}) : articles.slice(2, 7)).map((article, i) => (
+                  <div key={article.id || i} className={`group ${loading ? 'animate-pulse' : ''}`}>
+                    <div className="flex gap-4">
+                      <div className="w-20 h-20 flex-shrink-0 bg-gray-100 overflow-hidden">
+                        {!loading && <img src={article.image} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-sm font-bold line-clamp-2 leading-tight group-hover:text-blue-600 transition-colors cursor-pointer">
+                          {loading ? <div className="h-4 bg-gray-200 w-full mb-1"></div> : article.title}
+                        </h3>
+                        {loading ? <div className="h-3 bg-gray-200 w-24 mt-2"></div> : <p className="text-[10px] text-gray-500 mt-1 uppercase font-semibold">{article.publishedAt}</p>}
+                      </div>
+                    </div>
+                    {i < 4 && <div className="mt-6 border-b border-gray-100"></div>}
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="glass rounded-xl p-6 text-center card-hover">
-              <div className="text-3xl font-bold gradient-text-blue">90%</div>
-              <div className="text-gray-400 mt-2">AI Automated</div>
-            </div>
-            <div className="glass rounded-xl p-6 text-center card-hover">
-              <div className="text-3xl font-bold gradient-text-blue">24/7</div>
-              <div className="text-gray-400 mt-2">News Updates</div>
-            </div>
+
           </div>
         </div>
       </section>
 
       {/* Trending Topics */}
-      <section className="py-16 bg-gradient-to-b from-black to-gray-900">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
               <span className="gradient-text">Trending Now</span>
             </h2>
             <div className="flex items-center space-x-2 text-blue-500">
@@ -146,13 +203,13 @@ export default function Home() {
       </section>
 
       {/* Latest Articles */}
-      <section className="py-16 bg-gray-900">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
               Latest Articles
             </h2>
-            <a href="/articles" className="text-blue-500 hover:text-blue-400 transition-colors flex items-center space-x-2">
+            <a href="/articles" className="text-blue-600 hover:text-blue-700 transition-colors flex items-center space-x-2">
               <span>View All</span>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -179,15 +236,15 @@ export default function Home() {
       </section>
 
       {/* Categories Section */}
-      <section className="py-16 bg-gradient-to-b from-gray-900 to-black">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
             Explore by Category
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {[
               { name: 'AI', icon: '🤖', slug: 'artificial-intelligence', color: 'from-blue-500 to-cyan-500' },
-              { name: 'Technology', icon: '💻', slug: 'technology', color: 'from-purple-500 to-pink-500' },
+              { name: 'Technology', icon: '💻', slug: 'technology', color: 'from-blue-400 to-sky-500' },
               { name: 'Business', icon: '💼', slug: 'business', color: 'from-green-500 to-emerald-500' },
               { name: 'Science', icon: '🔬', slug: 'science', color: 'from-yellow-500 to-orange-500' },
               { name: 'Cybersecurity', icon: '🔒', slug: 'cybersecurity', color: 'from-red-500 to-rose-500' }
@@ -198,7 +255,7 @@ export default function Home() {
                 className={`glass rounded-xl p-6 text-center card-hover group`}
               >
                 <div className="text-4xl mb-3">{category.icon}</div>
-                <div className="text-white font-semibold group-hover:text-blue-400 transition-colors">
+                <div className="text-gray-700 font-semibold group-hover:text-blue-600 transition-colors">
                   {category.name}
                 </div>
               </a>
@@ -208,7 +265,7 @@ export default function Home() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-900 to-purple-900">
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Stay Updated
@@ -220,7 +277,7 @@ export default function Home() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-6 py-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="flex-1 px-6 py-4 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-100 focus:outline-none focus:ring-2 focus:ring-white"
             />
             <button className="px-8 py-4 bg-white text-blue-900 rounded-lg font-semibold hover:bg-gray-100 transition-all">
               Subscribe

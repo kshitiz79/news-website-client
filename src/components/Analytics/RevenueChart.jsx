@@ -15,9 +15,9 @@ export default function RevenueChart() {
   const avgGrowth = ((data[data.length - 1].revenue - data[0].revenue) / data[0].revenue * 100).toFixed(1);
 
   return (
-    <div className="glass rounded-xl p-6">
+    <div className="bg-white border border-gray-100 shadow-sm rounded-xl p-6">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold text-white">Revenue Growth</h2>
+        <h2 className="text-2xl font-bold text-gray-900">Revenue Growth</h2>
         <div className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-green-400 text-sm font-semibold">
           +{avgGrowth}%
         </div>
@@ -28,7 +28,7 @@ export default function RevenueChart() {
         {/* Grid Lines */}
         <div className="absolute inset-0 flex flex-col justify-between">
           {[0, 1, 2, 3, 4].map((i) => (
-            <div key={i} className="border-t border-white/5"></div>
+            <div key={i} className="border-t border-gray-100"></div>
           ))}
         </div>
 
@@ -94,7 +94,7 @@ export default function RevenueChart() {
         {/* Month Labels */}
         <div className="absolute bottom-0 left-0 right-0 flex justify-between px-2">
           {data.map((item, index) => (
-            <div key={index} className="text-gray-400 text-sm">
+            <div key={index} className="text-gray-500 text-sm">
               {item.month}
             </div>
           ))}
@@ -102,22 +102,22 @@ export default function RevenueChart() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-white/10">
+      <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-gray-100">
         <div>
-          <div className="text-gray-400 text-sm mb-1">Total Revenue</div>
-          <div className="text-white font-bold text-lg">
+          <div className="text-gray-500 text-sm mb-1">Total Revenue</div>
+          <div className="text-gray-900 font-bold text-lg">
             ${totalRevenue.toFixed(2)}
           </div>
         </div>
         <div>
-          <div className="text-gray-400 text-sm mb-1">Avg Monthly</div>
-          <div className="text-white font-bold text-lg">
+          <div className="text-gray-500 text-sm mb-1">Avg Monthly</div>
+          <div className="text-gray-900 font-bold text-lg">
             ${(totalRevenue / data.length).toFixed(2)}
           </div>
         </div>
         <div>
-          <div className="text-gray-400 text-sm mb-1">This Month</div>
-          <div className="text-white font-bold text-lg">
+          <div className="text-gray-500 text-sm mb-1">This Month</div>
+          <div className="text-gray-900 font-bold text-lg">
             ${data[data.length - 1].revenue.toFixed(2)}
           </div>
         </div>

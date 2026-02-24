@@ -91,7 +91,7 @@ export default function ArticlePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black py-12">
+      <div className="min-h-screen bg-gray-50 py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="skeleton rounded-xl h-96 mb-8"></div>
           <div className="skeleton rounded-xl h-64"></div>
@@ -102,11 +102,11 @@ export default function ArticlePage() {
 
   if (!article) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
           <div className="text-6xl mb-4">📰</div>
-          <h1 className="text-2xl font-bold text-white mb-2">Article Not Found</h1>
-          <p className="text-gray-400 mb-6">The article you're looking for doesn't exist.</p>
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">Article Not Found</h1>
+          <p className="text-gray-500 mb-6">The article you're looking for doesn't exist.</p>
           <a href="/" className="px-6 py-3 bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors">
             Go Home
           </a>
@@ -116,17 +116,17 @@ export default function ArticlePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-blue-900/50 to-purple-900/50 py-20">
+      <div className="relative bg-gradient-to-br from-blue-50 to-sky-100 py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <div className="flex items-center space-x-2 text-sm text-gray-400 mb-6">
-            <a href="/" className="hover:text-white transition-colors">Home</a>
+            <a href="/" className="hover:text-blue-600 transition-colors">Home</a>
             <span>/</span>
-            <a href="/articles" className="hover:text-white transition-colors">Articles</a>
+            <a href="/articles" className="hover:text-blue-600 transition-colors">Articles</a>
             <span>/</span>
-            <span className="text-white">{article.category}</span>
+            <span className="text-gray-900">{article.category}</span>
           </div>
 
           {/* Category & Date */}
@@ -134,31 +134,31 @@ export default function ArticlePage() {
             <span className="px-4 py-2 bg-blue-500/20 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold">
               {article.category}
             </span>
-            <span className="text-gray-400 text-sm">
+            <span className="text-gray-500 text-sm">
               {new Date(article.publishedAt).toLocaleDateString('en-US', { 
                 year: 'numeric', 
                 month: 'long', 
                 day: 'numeric' 
               })}
             </span>
-            <span className="text-gray-400 text-sm">•</span>
-            <span className="text-gray-400 text-sm">{article.readingTime} min read</span>
+            <span className="text-gray-500 text-sm">•</span>
+            <span className="text-gray-500 text-sm">{article.readingTime} min read</span>
           </div>
 
           {/* Title */}
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             {article.title}
           </h1>
 
           {/* Author & Share */}
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center text-white font-bold">
                 AI
               </div>
               <div>
-                <div className="text-white font-semibold">{article.author}</div>
-                <div className="text-gray-400 text-sm">AI-Generated Content</div>
+                <div className="text-gray-900 font-semibold">{article.author}</div>
+                <div className="text-gray-500 text-sm">AI-Generated Content</div>
               </div>
             </div>
             <SocialShare article={article} />
@@ -170,7 +170,7 @@ export default function ArticlePage() {
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Featured Image */}
         {article.image && (
-          <div className="relative h-96 rounded-2xl overflow-hidden mb-12 bg-gradient-to-br from-blue-500/20 to-purple-500/20">
+          <div className="relative h-96 rounded-2xl overflow-hidden mb-12 bg-gradient-to-br from-blue-100 to-sky-100">
             <img
               src={article.image}
               alt={article.title}
@@ -184,25 +184,25 @@ export default function ArticlePage() {
 
         {/* Content */}
         <div 
-          className="prose prose-invert prose-lg max-w-none
-            prose-headings:text-white prose-headings:font-bold
+          className="prose prose-lg max-w-none
+            prose-headings:text-gray-900 prose-headings:font-bold
             prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-            prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-6
-            prose-strong:text-white prose-strong:font-semibold
-            prose-ul:text-gray-300 prose-li:mb-2
-            prose-a:text-blue-400 prose-a:no-underline hover:prose-a:text-blue-300"
+            prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6
+            prose-strong:text-gray-900 prose-strong:font-semibold
+            prose-ul:text-gray-700 prose-li:mb-2
+            prose-a:text-blue-600 prose-a:no-underline hover:prose-a:text-blue-700"
           dangerouslySetInnerHTML={{ __html: article.content }}
         />
 
         {/* Tags */}
-        <div className="mt-12 pt-8 border-t border-white/10">
-          <h3 className="text-white font-semibold mb-4">Tags</h3>
+        <div className="mt-12 pt-8 border-t border-gray-200">
+          <h3 className="text-gray-900 font-semibold mb-4">Tags</h3>
           <div className="flex flex-wrap gap-2">
             {article.tags.map((tag) => (
               <a
                 key={tag}
                 href={`/tag/${tag.toLowerCase()}`}
-                className="px-4 py-2 glass rounded-full text-sm hover:bg-white/10 transition-colors"
+                className="px-4 py-2 bg-gray-100 rounded-full text-sm text-gray-700 hover:bg-gray-200 hover:text-gray-900 transition-colors"
               >
                 #{tag}
               </a>
@@ -213,7 +213,7 @@ export default function ArticlePage() {
 
       {/* Related Articles */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-3xl font-bold text-white mb-8">Related Articles</h2>
+        <h2 className="text-3xl font-bold text-gray-900 mb-8">Related Articles</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {relatedArticles.map((relatedArticle) => (
             <ArticleCard key={relatedArticle.id} article={relatedArticle} />

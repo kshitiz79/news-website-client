@@ -112,14 +112,14 @@ export default function ArticlesPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black py-12">
+    <div className="min-h-screen bg-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
             <span className="gradient-text">All Articles</span>
           </h1>
-          <p className="text-xl text-gray-400">
+          <p className="text-xl text-gray-500">
             Explore our latest AI-generated news and insights
           </p>
         </div>
@@ -134,7 +134,7 @@ export default function ArticlesPage() {
                 placeholder="Search articles..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-6 py-4 pl-12 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-6 py-4 pl-12 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
               <svg
                 className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
@@ -155,8 +155,8 @@ export default function ArticlesPage() {
                 onClick={() => setFilter(category)}
                 className={`px-6 py-2 rounded-full font-semibold transition-all ${
                   filter === category
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-blue-500/50'
-                    : 'glass text-gray-300 hover:bg-white/10'
+                    ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg shadow-blue-400/30'
+                    : 'bg-gray-100 text-gray-600 hover:bg-blue-50 hover:text-blue-600 border border-gray-200'
                 }`}
               >
                 {category}
@@ -166,7 +166,7 @@ export default function ArticlesPage() {
         </div>
 
         {/* Results Count */}
-        <div className="mb-6 text-gray-400">
+          <div className="mb-6 text-gray-500">
           {loading ? (
             <p>Loading articles...</p>
           ) : (
@@ -196,7 +196,7 @@ export default function ArticlesPage() {
         ) : (
           <div className="text-center py-20">
             <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-2xl font-bold text-white mb-2">No articles found</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">No articles found</h3>
             <p className="text-gray-400 mb-6">
               Try adjusting your search or filter criteria
             </p>

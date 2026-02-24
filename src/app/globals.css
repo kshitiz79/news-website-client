@@ -1,12 +1,25 @@
 @import "tailwindcss";
 
+@theme {
+    --font-inter: var(--font-inter);
+    --font-playfair: var(--font-playfair);
+}
+
+.font-playfair {
+    font-family: var(--font-playfair), serif;
+}
+
+.font-inter {
+    font-family: var(--font-inter), sans-serif;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #1a1a1a;
+    background: #f1f5f9;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -46,6 +59,20 @@ html {
     }
 }
 
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee 30s linear infinite;
+}
+
 @keyframes pulse {
 
     0%,
@@ -66,26 +93,26 @@ html {
     animation: slideIn 0.5s ease-out;
 }
 
-/* Gradient text */
+/* Gradient text - blue only, no purple */
 .gradient-text {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .gradient-text-blue {
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-/* Glass morphism */
+/* Glass morphism - light version */
 .glass {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.15);
 }
 
 /* Card hover effect */
@@ -95,12 +122,12 @@ html {
 
 .card-hover:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.12);
 }
 
 /* Loading skeleton */
 .skeleton {
-    background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+    background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
     background-size: 200% 100%;
     animation: loading 1.5s infinite;
 }

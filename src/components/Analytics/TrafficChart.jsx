@@ -14,11 +14,11 @@ export default function TrafficChart() {
   const maxViews = Math.max(...data.map(d => d.views));
 
   return (
-    <div className="glass rounded-xl p-6">
+    <div className="bg-white border border-gray-100 shadow-sm rounded-xl p-6">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold text-white">Traffic Overview</h2>
+        <h2 className="text-2xl font-bold text-gray-900">Traffic Overview</h2>
         <div className="flex items-center space-x-2 text-sm">
-          <span className="text-gray-400">Last 7 days</span>
+          <span className="text-gray-500">Last 7 days</span>
           <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
         </div>
       </div>
@@ -30,14 +30,14 @@ export default function TrafficChart() {
             <div key={index} className="flex-1 flex flex-col items-center">
               <div className="w-full relative group">
                 {/* Tooltip */}
-                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-black/90 rounded-lg text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 rounded-lg text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                   {item.views.toLocaleString()} views
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-black/90 rotate-45 -mt-1"></div>
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 rotate-45 -mt-1"></div>
                 </div>
 
                 {/* Bar */}
                 <div
-                  className="w-full bg-gradient-to-t from-blue-500 to-purple-600 rounded-t-lg transition-all duration-500 hover:from-blue-400 hover:to-purple-500 cursor-pointer"
+                  className="w-full bg-gradient-to-t from-blue-400 to-blue-600 rounded-t-lg transition-all duration-500 hover:from-blue-300 hover:to-blue-500 cursor-pointer"
                   style={{
                     height: `${(item.views / maxViews) * 100}%`,
                     minHeight: '20px'
@@ -46,29 +46,29 @@ export default function TrafficChart() {
               </div>
 
               {/* Day Label */}
-              <div className="text-gray-400 text-sm mt-2">{item.day}</div>
+              <div className="text-gray-500 text-sm mt-2">{item.day}</div>
             </div>
           ))}
         </div>
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-white/10">
+      <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-gray-100">
         <div>
-          <div className="text-gray-400 text-sm mb-1">Total Views</div>
-          <div className="text-white font-bold text-lg">
+          <div className="text-gray-500 text-sm mb-1">Total Views</div>
+          <div className="text-gray-900 font-bold text-lg">
             {data.reduce((sum, d) => sum + d.views, 0).toLocaleString()}
           </div>
         </div>
         <div>
-          <div className="text-gray-400 text-sm mb-1">Avg Daily</div>
-          <div className="text-white font-bold text-lg">
+          <div className="text-gray-500 text-sm mb-1">Avg Daily</div>
+          <div className="text-gray-900 font-bold text-lg">
             {Math.round(data.reduce((sum, d) => sum + d.views, 0) / data.length).toLocaleString()}
           </div>
         </div>
         <div>
-          <div className="text-gray-400 text-sm mb-1">Peak Day</div>
-          <div className="text-white font-bold text-lg">
+          <div className="text-gray-500 text-sm mb-1">Peak Day</div>
+          <div className="text-gray-900 font-bold text-lg">
             {data.reduce((max, d) => d.views > max.views ? d : max, data[0]).day}
           </div>
         </div>
