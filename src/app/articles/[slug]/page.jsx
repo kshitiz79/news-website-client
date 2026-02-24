@@ -47,7 +47,7 @@ export default function ArticlePage() {
           <p>This release represents a pivotal moment in AI history. As we stand on the brink of artificial general intelligence (AGI), GPT-5 demonstrates that the future of AI is not just about processing power, but about creating systems that truly understand and assist humanity.</p>
         `,
         category: "Artificial Intelligence",
-        image: "/images/ai-1.jpg",
+        image: "https://images.unsplash.com/photo-1514755102307-5c7bd88663a7?q=80&w=2000&auto=format&fit=crop",
         slug: "openai-gpt-5-release",
         publishedAt: "2026-01-28",
         readingTime: 5,

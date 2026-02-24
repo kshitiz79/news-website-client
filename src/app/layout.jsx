@@ -1,3 +1,4 @@
+import "./globals.css";
 import { Inter, Playfair_Display } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -19,69 +20,71 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${playfair.variable} font-sans bg-white text-gray-900 antialiased`}>
-        {/* News Ticker */}
-        <div className="bg-red-600 text-white overflow-hidden py-1.5 whitespace-nowrap sticky top-0 z-[60] text-sm font-medium">
-          <div className="inline-block animate-marquee px-4">
-            <span className="mx-4 font-bold">BREAKING:</span>
-            <span className="mx-4">OpenAI Releases GPT-5: The Future of AI is Here •</span>
-            <span className="mx-4">Apple Vision Pro 2 Leaked: Revolutionary AR Features •</span>
-            <span className="mx-4">Quantum Computing Breakthrough: 1000-Qubit Processor Achieved •</span>
-            <span className="mx-4">Tesla's New AI Chip Outperforms NVIDIA's Latest GPU •</span>
-          </div>
-        </div>
-
-        {/* Navigation */}
-        <nav className="fixed top-8 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-16">
-              {/* Logo */}
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">AI</span>
-                </div>
-                <span className="text-xl font-bold gradient-text-blue">News Automation</span>
-              </div>
-
-              {/* Navigation Links */}
-              <div className="hidden md:flex items-center space-x-8">
-                <a href="/" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
-                  Home
-                </a>
-                <a href="/articles" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
-                  Articles
-                </a>
-                <a href="/category/artificial-intelligence" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
-                  AI
-                </a>
-                <a href="/category/technology" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
-                  Technology
-                </a>
-                <a href="/dashboard" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
-                  Dashboard
-                </a>
-              </div>
-
-              {/* CTA Button */}
-              <div className="hidden md:block">
-                <button className="px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-400/40 transition-all">
-                  Subscribe
-                </button>
-              </div>
-
-              {/* Mobile menu button */}
-              <div className="md:hidden">
-                <button className="text-gray-600 hover:text-blue-600">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                </button>
-              </div>
+        <header className="fixed top-0 left-0 right-0 z-[60]">
+          {/* News Ticker */}
+          <div className="bg-red-600 text-white overflow-hidden py-1.5 whitespace-nowrap text-sm font-medium">
+            <div className="inline-block animate-marquee px-4">
+              <span className="mx-4 font-bold">BREAKING:</span>
+              <span className="mx-4">OpenAI Releases GPT-5: The Future of AI is Here •</span>
+              <span className="mx-4">Apple Vision Pro 2 Leaked: Revolutionary AR Features •</span>
+              <span className="mx-4">Quantum Computing Breakthrough: 1000-Qubit Processor Achieved •</span>
+              <span className="mx-4">Tesla's New AI Chip Outperforms NVIDIA's Latest GPU •</span>
             </div>
           </div>
-        </nav>
+
+          {/* Navigation */}
+          <nav className="bg-white/95 backdrop-blur-md border-b border-blue-100 shadow-sm">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex items-center justify-between h-16">
+                {/* Logo */}
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-xl">AI</span>
+                  </div>
+                  <span className="text-xl font-bold gradient-text-blue">News Automation</span>
+                </div>
+
+                {/* Navigation Links */}
+                <div className="hidden md:flex items-center space-x-8">
+                  <a href="/" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
+                    Home
+                  </a>
+                  <a href="/articles" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
+                    Articles
+                  </a>
+                  <a href="/category/artificial-intelligence" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
+                    AI
+                  </a>
+                  <a href="/category/technology" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
+                    Technology
+                  </a>
+                  <a href="/dashboard" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">
+                    Dashboard
+                  </a>
+                </div>
+
+                {/* CTA Button */}
+                <div className="hidden md:block">
+                  <button className="px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-400/40 transition-all">
+                    Subscribe
+                  </button>
+                </div>
+
+                {/* Mobile menu button */}
+                <div className="md:hidden">
+                  <button className="text-gray-600 hover:text-blue-600">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </header>
 
         {/* Main Content */}
-        <main className="pt-16 min-h-screen">
+        <main className="pt-24 min-h-screen">
           {children}
         </main>
 

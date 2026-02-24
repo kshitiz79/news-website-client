@@ -14,65 +14,68 @@ export default function Home() {
       setArticles([
         {
           id: 1,
-          title: "OpenAI Releases GPT-5: The Future of AI is Here",
-          excerpt: "OpenAI has unveiled GPT-5, marking a significant leap in artificial intelligence capabilities with unprecedented reasoning and multimodal understanding.",
-          category: "Artificial Intelligence",
-          image: "/images/ai-1.jpg",
-          slug: "openai-gpt-5-release",
-          publishedAt: "2026-01-28",
-          readingTime: 5,
+          title: "Mar-a-Lago Security: 21-Year-Old Killed by Secret Service",
+          excerpt: "Tension erupted last weekend at the Mar-a-Lago residence in Florida. A 21-year-old man from Italy was shot by Secret Service after attempting to bypass security checkpoints.",
+          category: "News",
+          image: "https://images.unsplash.com/photo-1514755102307-5c7bd88663a7?q=80&w=2000&auto=format&fit=crop",
+          slug: "mar-a-lago-security-incident",
+          publishedAt: "February 23, 2026",
           trending: true
         },
         {
           id: 2,
-          title: "Apple Vision Pro 2 Leaked: Revolutionary AR Features",
-          excerpt: "Leaked documents reveal Apple's next-generation Vision Pro with advanced eye-tracking, neural interface, and all-day battery life.",
-          category: "Technology",
-          image: "/images/tech-1.jpg",
-          slug: "apple-vision-pro-2-leak",
-          publishedAt: "2026-01-28",
-          readingTime: 4,
+          title: "Journey into the Unknown: \"The Leeds Train\" by Daniele Tenzon",
+          excerpt: "A deep dive into the latest literary masterpiece that is taking the world by storm, exploring themes of travel, mystery, and human connection.",
+          category: "Books",
+          image: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=2000&auto=format&fit=crop",
+          slug: "leeds-train-review",
+          publishedAt: "February 23, 2026",
           trending: true
         },
         {
           id: 3,
-          title: "Quantum Computing Breakthrough: 1000-Qubit Processor Achieved",
-          excerpt: "Scientists at MIT have successfully created a stable 1000-qubit quantum processor, bringing us closer to practical quantum computing.",
-          category: "Science",
-          image: "/images/science-1.jpg",
-          slug: "quantum-computing-breakthrough",
-          publishedAt: "2026-01-27",
-          readingTime: 6
+          title: "Injuries in modern football: a systemic problem, not an accidental one",
+          excerpt: "As the intensity of the game increases, researchers are finding that the rise in injuries is a direct result of the modern football system's demands on athletes.",
+          category: "Sport",
+          image: "https://images.unsplash.com/photo-1508098662722-e99c43a406b2?q=80&w=2000&auto=format&fit=crop",
+          slug: "football-injuries-study",
+          publishedAt: "February 10, 2026"
         },
         {
           id: 4,
-          title: "Tesla's New AI Chip Outperforms NVIDIA's Latest GPU",
-          excerpt: "Tesla unveils its proprietary AI training chip that delivers 2x performance of NVIDIA's H100 at half the power consumption.",
-          category: "Technology",
-          image: "/images/tech-2.jpg",
-          slug: "tesla-ai-chip-nvidia",
-          publishedAt: "2026-01-27",
-          readingTime: 5
+          title: "Juventus-Napoli 3-0: Spalletti dominates Conte at the Stadium",
+          excerpt: "A tactical masterclass from Spalletti saw Juventus cruise to a comfortable victory against a struggling Napoli side.",
+          category: "Sport",
+          image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2000&auto=format&fit=crop",
+          slug: "juventus-napoli-match-report",
+          publishedAt: "January 25, 2026"
         },
         {
           id: 5,
-          title: "Major Cybersecurity Breach Affects 50 Million Users",
-          excerpt: "A sophisticated cyberattack has compromised user data from multiple tech companies, highlighting critical security vulnerabilities.",
-          category: "Cybersecurity",
-          image: "/images/security-1.jpg",
-          slug: "major-cybersecurity-breach",
-          publishedAt: "2026-01-27",
-          readingTime: 7
+          title: "Renewal of the National Collective Bargaining Agreement for Metalworkers",
+          excerpt: "After months of negotiations, a new agreement has been reached that promises better wages and conditions for millions of workers.",
+          category: "Economy",
+          image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=2000&auto=format&fit=crop",
+          slug: "metalworkers-agreement",
+          publishedAt: "February 23, 2026"
         },
         {
           id: 6,
-          title: "AI-Powered Drug Discovery Finds Cure for Rare Disease",
-          excerpt: "Researchers using AI have discovered a potential cure for a rare genetic disorder, demonstrating AI's impact on healthcare.",
-          category: "Health",
-          image: "/images/health-1.jpg",
-          slug: "ai-drug-discovery-cure",
-          publishedAt: "2026-01-26",
-          readingTime: 5
+          title: "Italian Economy: Recovery consolidates, but pace remains cautious",
+          excerpt: "Economic indicators suggest a steady growth for Italy, though global uncertainties keep investors and policymakers on high alert.",
+          category: "Economy",
+          image: "https://images.unsplash.com/photo-1526303328184-bfd44b10b33b?q=80&w=2000&auto=format&fit=crop",
+          slug: "italian-economy-report",
+          publishedAt: "February 23, 2026"
+        },
+        {
+          id: 7,
+          title: "Cristiano Ronaldo continues to enchant: spectacular assist for Al Nassr",
+          excerpt: "Even at his age, Ronaldo proves he is still world-class with a performance that silenced critics in the Asian Championship.",
+          category: "Sport",
+          image: "https://images.unsplash.com/photo-1529900668413-582731eaa968?q=80&w=2000&auto=format&fit=crop",
+          slug: "ronaldo-al-nassr-assist",
+          publishedAt: "December 26, 2025"
         }
       ]);
       setLoading(false);

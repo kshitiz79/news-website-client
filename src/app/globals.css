@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
-@theme {
-    --font-inter: var(--font-inter);
-    --font-playfair: var(--font-playfair);
+:root {
+    --font-playfair: 'Playfair Display', serif;
+    --font-inter: 'Inter', sans-serif;
 }
 
 .font-playfair {
-    font-family: var(--font-playfair), serif;
+    font-family: var(--font-playfair);
 }
 
 .font-inter {
-    font-family: var(--font-inter), sans-serif;
+    font-family: var(--font-inter);
 }
 
 /* Custom scrollbar */
