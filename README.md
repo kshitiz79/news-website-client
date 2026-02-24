@@ -146,3 +146,4 @@ Open [http://localhost:3000](http://localhost:3000)
 
 **Built with ❤️ and AI**
 # news-app-frontend
+# news-website-client
