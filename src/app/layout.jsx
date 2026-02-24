@@ -125,6 +125,7 @@ export default function RootLayout({ children }) {
                   <li><a href="/articles" className="text-gray-500 hover:text-blue-600 transition-colors">Articles</a></li>
                   <li><a href="/category/artificial-intelligence" className="text-gray-500 hover:text-blue-600 transition-colors">AI News</a></li>
                   <li><a href="/dashboard" className="text-gray-500 hover:text-blue-600 transition-colors">Dashboard</a></li>
+                  <li><a href="/dashboard/news" className="text-gray-500 hover:text-blue-600 transition-colors">Manage News</a></li>
                 </ul>
               </div>
 
